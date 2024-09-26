@@ -22,10 +22,28 @@ else:
 # get:- the 
 
 @app.route('/')
-def login():
+def index():
     return render_template('index.html')
 
 
 @app.route('/ScrapRate')
-def register():
+def scraprate():
     return render_template('ScrapRate.html')
+
+@app.route('/sign_in')
+def sign_in():
+    return render_template('sign_in.html')
+@app.route('/')
+def home():
+    if'User_id' in session:
+        return render_template('home.html')
+    else:
+        return redirect('/')
+    
+
+
+
+
+
+if __name__ == "__main__":
+    app.run(debug = True)
