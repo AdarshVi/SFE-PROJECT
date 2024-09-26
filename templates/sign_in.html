@@ -4,68 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-
+    <title>Login</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpeg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
-
 </head>
 
 <body>
-
-    <body>
-        <div class="container">
-            <div class="left">
-                <div class="welcome-message">
-                    <h1>Welcome!</h1>
-                    <p>We're glad to have you back.</p>
-                </div>
+    <div class="container">
+        <div class="left">
+            <div class="welcome-message">
+                <h1>Welcome!</h1>
+                <p>We're glad to have you back.</p>
             </div>
-            <div class="right">
-                <div class="login-box">
-                    <div class="login-title">
+        </div>
+        <div class="right">
+            <div class="login-box">
+                <div class="login-title">
                     <h2>Login</h2>
                 </div>
-                    <form action="/login" method="POST">
-                        <div class="input-box">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" required>
-                        </div>
-
-
-                        <div class="input-box">
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        <button type="submit">Login</button>
-                    </form>
-    
-                    <!-- Forgot password and sign up links -->
-                    <div class="login-options">
-                        <a href="/forgot-password">Forgot password?</a>
-                        <a href="signup.html">Don't have an account? Sign up</a>
+                <form id="loginForm" action="/login" method="POST">
+                    <div class="input-box">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
                     </div>
-    
-                    <!-- Divider with "or" in the middle -->
-                    <div class="divider">or</div>
-    
-                    <!-- Social login icons -->
-                    <div class="social-login">
-                        <i class="fa-brands fa-google"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>                    
-                        <i class="fa-brands fa-apple"></i>
+
+                    <div class="input-box">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
                     </div>
+                    <button type="submit" id="loginBtn">Login</button>
+                </form>
+
+                <!-- Forgot password and sign up links -->
+                <div class="login-options">
+                    <a href="/forgot-password">Forgot password?</a>
+                    <a href="/sign_up">Don't have an account? Sign up</a>
+                </div>
+
+                <!-- Divider with "or" in the middle -->
+                <div class="divider">or</div>
+
+                <!-- Social login icons -->
+                <div class="social-login">
+                    <i class="fa-brands fa-google"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-apple"></i>
                 </div>
             </div>
         </div>
-    
-        <!-- Font Awesome CDN Script -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    </body>
+    </div>
 
+    <!-- Font Awesome CDN Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
-    <script src="script.js"></script>
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const missingFields = [];
+
+            // Check for missing fields
+            if (!username) missingFields.push('Username');
+            if (!password) missingFields.push('Password');
+
+            // If there are missing fields, show an alert
+            if (missingFields.length > 0) {
+                alert('Please fill in the following fields: ' + missingFields.join(', '));
+            } else {
+                // Redirect to the home page (index) after successful login
+                window.location.href = "{{ url_for('user') }}"; // Adjust if needed
+            }
+        });
+    </script>
 </body>
 
 </html>

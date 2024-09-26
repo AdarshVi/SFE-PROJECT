@@ -33,12 +33,24 @@ def scraprate():
 @app.route('/sign_in')
 def sign_in():
     return render_template('sign_in.html')
-@app.route('/')
-def home():
-    if'User_id' in session:
-        return render_template('home.html')
-    else:
-        return redirect('/')
+
+@app.route('/user')
+def user():
+    return render_template('userlogin.html')
+
+
+
+
+@app.route('/sign_up')
+def sign_up():
+    return render_template('signup.html')
+
+# @app.route('/')
+# def home():
+#     if'User_id' in session:
+#         return render_template('home.html')
+#     else:
+#         return redirect('/')
     
 
 
