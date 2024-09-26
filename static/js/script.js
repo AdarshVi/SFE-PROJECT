@@ -56,7 +56,25 @@ const sidebar = document.getElementById('sidebar');
 
 // Toggle sidebar when the user icon is clicked
 
+// form section
 
+document.getElementById('getStartedBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor behavior
+    var formContainer = document.getElementById('formContainer');
+    if (formContainer.style.display === "none" || formContainer.style.display === "") {
+        formContainer.style.display = "block";
+    } else {
+        formContainer.style.display = "none";
+    }
+});
+
+// Optional: Handle form submission
+document.getElementById('pickupForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    // Here you can handle form data submission
+    alert('Form submitted!'); // Example action
+});
+// code for user face end
 
 
 
