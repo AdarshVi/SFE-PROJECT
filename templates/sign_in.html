@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title> Garbage Collection Login</title>
     <link rel="icon" href="{{ url_for('static', filename='images/logo.jpeg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
 </head>
@@ -22,15 +22,15 @@
                 <div class="login-title">
                     <h2>Login</h2>
                 </div>
-                <form id="loginForm" action="/login" method="POST">
+                <form id="form" action="/login_validation" method="POST">
                     <div class="input-box">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
+                        <label for="username">email:</label>
+                        <input type="email" name="email" required>
                     </div>
 
                     <div class="input-box">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" name="password" required>
                     </div>
                     <input type="submit" class="button btn-primary btn-block btn-lg" value="Login">
                 </form>
@@ -57,28 +57,6 @@
 
     <!-- Font Awesome CDN Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const missingFields = [];
-
-            // Check for missing fields
-            if (!username) missingFields.push('Username');
-            if (!password) missingFields.push('Password');
-
-            // If there are missing fields, show an alert
-            if (missingFields.length > 0) {
-                alert('Please fill in the following fields: ' + missingFields.join(', '));
-            } else {
-                // Redirect to the home page (index) after successful login
-                window.location.href = "{{ url_for('user') }}"; // Adjust if needed
-            }
-        });
-    </script>
 </body>
 
 </html>

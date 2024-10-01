@@ -5,12 +5,13 @@ document.getElementById('menu-btn').onclick = function() {
 
 
 // typing animation start
-const fullText = "Turn your trash into cash—recycle and earn while helping the planet!"; // Text to type
+const fullText = "{Turn your trash into cash—recycle and earn while helping the planet!}"; // Text to type
     let index = 0;
     let typing = true;
     const typingSpeed = 100;
-    const deletingSpeed = 50;
-    const pauseDuration = 1000;
+    const deletingSpeed = 30;
+    const pauseDuration = 800;
+    const wateDuration = 5000;
 
     function typeAndDelete() {
         const typewriterElement = document.getElementById("typewriter");
@@ -24,7 +25,7 @@ const fullText = "Turn your trash into cash—recycle and earn while helping the
             } else {
                 // Once typing is complete, pause and then start deleting
                 typing = false;
-                setTimeout(typeAndDelete, pauseDuration);
+                setTimeout(typeAndDelete, wateDuration);
             }
         } else {
             // Deleting the text
@@ -66,13 +67,6 @@ document.getElementById('getStartedBtn').addEventListener('click', function(even
     } else {
         formContainer.style.display = "none";
     }
-});
-
-// Optional: Handle form submission
-document.getElementById('pickupForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
-    // Here you can handle form data submission
-    alert('Form submitted!'); // Example action
 });
 // code for user face end
 

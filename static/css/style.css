@@ -609,10 +609,26 @@ img.rate_image {
 #formContainer {
     margin-top: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #1c1919;
     border-radius: 5px;
     background-color: #f9f9f9;
 }
+
+#formContainer h4{
+    font-size: large;
+}
+
+#formContainer .button {
+    width: 100%;
+    padding: 10px;
+    background-color: #403e40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ;
+  }
+
 
 form {
     display: flex;
@@ -621,6 +637,7 @@ form {
 
 label {
     margin-bottom: 5px;
+    font-size: medium;
 }
 
 input, select {
